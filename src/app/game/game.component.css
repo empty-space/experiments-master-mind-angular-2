@@ -1,0 +1,32 @@
+.turn-ball{
+    min-width: 20px;
+    min-height: 20px;
+    border-radius:10px;
+    border: 1px solid #000;
+}
+
+.turn-results{
+    margin-left:10px;    
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-gap:1px;    
+}
+.turn-result{
+    /*display: inline-grid;*/
+    border-radius:5px;    
+    border: 1px solid rgb(100,100,100);
+    width: 10px;
+    height: 10px;
+}
+.turn-result.bull{
+    background-color: rgb(200,0,0);
+    border-color:  rgb(200,0,0);
+}
+.turn-result.cow{
+    background-color: rgb(255, 255, 255);
+    border-color:  rgb(255, 255, 255);
+}
+
+table, th, td {
+    border: 1px solid rgb(200,200,200);
+}
