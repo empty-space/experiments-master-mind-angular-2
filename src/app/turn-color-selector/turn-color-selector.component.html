@@ -1,0 +1,6 @@
+<div>
+  <div *ngFor="let color of colors" >
+    <div class="circle for-choose" [style.background-color]="color" (click)="choose(color)"></div>
+    {{color}}
+  </div>
+</div>

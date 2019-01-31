@@ -1,0 +1,10 @@
+nav > a{
+    background-color: rgb(122, 202, 202);
+    border: 1px solid #000;
+    border-radius: 2px;
+    padding: 2px;
+    margin-bottom: 20px;
+    text-decoration-line: none;
+    text-decoration-color: black;
+    -webkit-text-fill-color: black;
+}

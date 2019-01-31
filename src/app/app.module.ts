@@ -6,13 +6,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { GameComponent } from './game/game.component';
+import { TurnColorSelectorComponent } from './turn-color-selector/turn-color-selector.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     GameComponent,
-    ArrayFromNumber
+    ArrayFromNumber,
+    TurnColorSelectorComponent
   ],
   imports: [
     BrowserModule,

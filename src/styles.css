@@ -1,4 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 body{
-    background-color: darkgrey;
+    background-color: rgba(170, 230, 212, 0.719);
+}
+
+.circle {
+    border-radius: 50%;
+    /*behavior: url(PIE.htc); /* remove if you don't care about IE8 */
 }

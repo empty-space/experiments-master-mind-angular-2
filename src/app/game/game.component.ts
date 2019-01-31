@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Turn } from '../models/turn.model';
+import { BallColorsService } from '../services/ball-colors.service';
+import {ViewChild, ElementRef} from '@angular/core';
+import { ColorBall } from '../models/color-ball.model';
+import { GuessService } from '../services/guess.service';
+
 
 @Component({
   selector: 'app-game',
@@ -8,20 +13,44 @@ import { Turn } from '../models/turn.model';
 })
 export class GameComponent implements OnInit {
   turns: Turn[];
+  currentTurn: Turn;  
+  activeBallPlace: ColorBall;
 
-  constructor() {
+  constructor(private colorsService:BallColorsService, private guessService:GuessService) {
     this.turns = [
-      {coloredBalls: ['red', 'blue', 'magenta', 'yellow'], bulls:0, cows:0},
-      {coloredBalls: ['red', 'blue', 'magenta', 'yellow'], bulls:1, cows:1},
-      {coloredBalls: ['red', 'blue', 'magenta', 'yellow'], bulls:2, cows:1},
-      {coloredBalls: ['red', 'blue', 'magenta', 'yellow'], bulls:3, cows:1},
-      {coloredBalls: ['red', 'blue', 'magenta', 'yellow'], bulls:4, cows:0},
-
-
-  ];
+      this.guessService.generateRandomTurn(),
+      this.guessService.generateRandomTurn(),
+      this.guessService.generateRandomTurn(),
+      this.guessService.generateRandomTurn()];
+    this.currentTurn = Turn.createWithEmptyBalls();    
+    console.log(this.currentTurn)
   }
+
+  // generateRandomTurn():Turn{
+  //   var t = new Turn();
+  //   t.coloredBalls = [this.colorsService.getRandomColor(),this.colorsService.getRandomColor(),this.colorsService.getRandomColor(),this.colorsService.getRandomColor()]
+  //   t.bulls = Math.floor(Math.random()*4)
+  //   t.cows = Math.floor(Math.random()*3+2) - t.bulls;
+  //   t.cows = t.cows >=0 ? t.cows : 0;
+  //   return t;
+  // }
 
   ngOnInit() {
   }
 
+  toggleColorPanel(ballPlace:ColorBall):void {
+    this.log(ballPlace);
+    this.activeBallPlace = ballPlace;    
+    //this.currentBallPlace = ballPlace;
+  }
+
+  colorWasChoosed(color:string){
+    this.log(color);
+    this.activeBallPlace.color = color;
+    //this.currentBallPlace.style.backgroundColor = color;
+  }
+
+  log(message){
+    console.log(message)
+  }
 }

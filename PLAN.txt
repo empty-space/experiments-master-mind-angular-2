@@ -1,0 +1,13 @@
+This plan describes what we are goin to implement in this app.
+
+Features to use:
+- dynamic rendering abilities of NG
+- form (on user page)
+    - validation
+    - save api connection
+
+Pages:
+- Game
+- Dahboard
+- User-SignIn-SignUp
+

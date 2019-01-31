@@ -6,21 +6,24 @@
   <tbody>
     <tr class="turn" *ngFor="let turn of turns">
       <td *ngFor="let ball of turn.coloredBalls">
-        <div class="turn-ball" [style.background-color]="ball"></div>
+        <div class="circle turn-ball" [style.background-color]="ball.color"></div>
       </td>   
       <td class="turn-results">
-        <div class="turn-result bull" *ngFor="let key of (turn.bulls | arrayFromNumber)"> </div>
-        <div class="turn-result cow" *ngFor="let key of (turn.cows | arrayFromNumber)"> </div>
-        <div class="turn-result" *ngFor="let key of ((turn.coloredBalls.length - turn.bulls - turn.cows) | arrayFromNumber)"> </div>
+        <div class="circle turn-result bull" *ngFor="let key of turn.bulls | arrayFromNumber)"> </div>
+        <div class="circle turn-result cow" *ngFor="let key of (turn.cows | arrayFromNumber)"> </div>
+        <div class="circle turn-result" *ngFor="let key of ((turn.coloredBalls.length - turn.bulls - turn.cows) | arrayFromNumber)"> </div>
         <!-- <div class="turn-result cow" *ngFor="let i of Array(turn.cows)"> </div>
         <div class="turn-result" *ngFor="let i of Array(turn.coloredBalls.length - turn.bulls - turn.cows)"> </div> -->
       </td>  
     </tr>
     <tr class="turn-current">
-      <td><div class="turn-ball"></div></td>
-      <td><div class="turn-ball"></div></td>
-      <td><div class="turn-ball"></div></td>
-      <td><div class="turn-ball"></div></td>      
+      <td *ngFor="let ballPlace of (currentTurn.coloredBalls)">
+        <div class="circle turn-ball" 
+          (click)="toggleColorPanel(ballPlace)" 
+          [style.background-color]="ballPlace.color" 
+          [class.active]="activeBallPlace == ballPlace"></div>
+      </td>   
     </tr>
   </tbody>
-<table>
+</table>  
+<app-turn-color-selector (chooselColor)="colorWasChoosed($event)"></app-turn-color-selector>
